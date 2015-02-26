@@ -1,0 +1,32 @@
+# Compiled source
+*.py[cod]
+
+# C extensions
+*.so
+
+# Packages
+*.egg
+*.egg-info
+dist
+build
+parts
+eggs
+bin
+var
+sdist
+delveop-eggs
+.installed.cfg
+lib
+lib64
+__pycache__
+
+*~
+
+
+# Keys
+setup/keys/*
+
+
+# Logs
+*.log
+*.sqlite

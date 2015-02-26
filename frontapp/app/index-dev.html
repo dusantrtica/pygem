@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>PyGem 2.0</title>
+		<meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <meta name="description" content=""/>
+
+	    <!-- CSS -->
+	    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+
+
+	  	<!-- Angular and dependencies-->
+	  	<script src="js/libs/angular.js"></script>
+	  	<script src="js/libs/jquery.js"></script>
+	  	<script src="js/libs/bootstrap.js"></script>
+	  	<script src="js/libs/angular-ui-router.js"></script>
+	  	<script src="js/libs/angular-mocks.js"></script>
+
+	</head>
+	<body ng-app="PGApp" ng-controller="MainCtrl">
+		<nav class="navbar" role="navigation">
+			<div class="col-sm-offset-1 col-sm-10">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+						data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+				</button>
+				<a class="navbar-brand" href="">PyGem MVP</a>
+			</div>
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<!-- Here goes ng-if authenticated-->
+				<ul ng-if="true" class="nav navbar-nav" style="margin-left: 15px;">
+					<li>
+						<a ui-sref="employees">Employees</a>
+					</li>
+					<li>
+						<a ui-sref="courses">Courses</a>
+					</li>
+					<li>
+						<a ui-sref="positions">Positions</a>
+					</li>
+					<li>
+						<a ui-sref="education">Education</a>
+					</li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li>
+						<a ng-if="isAuthenticated()" ui-sref="signout">Sign Out</a>
+						<a ng-if="!isAuthenticated()" ui-sref="signin">Sign In</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+
+		<div class="col-sm-offset-1 col-sm-10">
+			<div ui-view></div>
+		</div>
+
+		<!--PGApp-->
+		<script src="js/app.js"></script>
+
+		<!-- PGApp.employees -->
+		<script src="js/employees/employees.js"></script>
+		<script src="js/employees/controllers/listemployees.js"></script>
+
+		<!-- PGApp.services -->
+		<script src="js/services/employee.js"></script>
+	</body>
+</html>
