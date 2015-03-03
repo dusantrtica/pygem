@@ -8,28 +8,47 @@ class Serializer(object):
 
 	@property
 	def data(self):
-		columns = [column[0] for column in self.cursor.description if column[0].lower() in self.fields]
+		# If we set fields then those are used for projection. Otherwise entire query is used
+		if self.fields:
+			columns = [column[0] for column in self.cursor.description if column[0].lower() in self.fields]
+		else:
+			columns = [column[0] for column in self.cursor.description]
 		results = []
 		for row in self.cursor.fetchall():
-			results.append(dict(zip(columns, map(lambda x:row.__getattribute__(x), columns))))
+			results.append(dict(zip(map(lambda x:x.lower(), columns), map(lambda x:row.__getattribute__(x), columns))))
 
 		if not self.many:
 			return results[0]
 		else:
 			return results
 
+class MethodField(object):
+	def __init__(self, function_name):
+		self._function_name = function_name
+
+
 
 # Class that takes pyodbc result set and returns python dict
 class EmployeeListSerializer(Serializer):
 	def __init__(self, cursor, **kwargs):
-		kwargs['fields'] = self.fields
+		kwargs['fields'] = self.fields		
 		super(EmployeeListSerializer, self).__init__(cursor, **kwargs)
+
+	employeejob = MethodField('get_employeejobtitle')
+	employeejobtype = MethodField('get_employeejobtypetitle')
 
 	fields = [
 	    'employeeid',
 		'employeefirstname',
-		'employeesurname'
+		'employeesurname',		
+		'employeejobtypes'
 	]
+
+	def get_employeejobtitle(self, param):
+		return 'Nastavno Osoblje'
+
+	def get_employeejobtypetitle(self, param):
+		return 'Redovni Profesor'
 
 class EmployeeSerializer(Serializer):
 	def __init__(self, cursor, **kwargs):

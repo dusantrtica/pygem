@@ -1,6 +1,7 @@
 angular.module('PGApp.services')
 .service('Employee', ['$http', function($http){
 	var baseUrl = 'http://jsonstub.com';
+	baseUrl = 'http://localhost:5000'
 	return {		
 
 		getAll: function(page){

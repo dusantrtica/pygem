@@ -1,15 +1,17 @@
 import ipdb
 from flask import request
 from flask.ext import restful
+from flask.ext.cors import cross_origin
 from entities.models.employee import *
 
 
-class Employee(restful.Resource):
+class Employee(restful.Resource):    
     def get(self, id=None):    	
     	if id:
     		result = get_employee_by_id(id)
     	else:
-    		result = get_employees()    	
+            # TODO: here goes pagination
+    		result = {'results': get_employees()}
 
     	return result
 

@@ -32,14 +32,14 @@ angular.module('PGApp',[
 }])
 .factory('jsonStubInterceptor', [function(){
 	return{
-		'request': function(config){
-			config.headers['JsonStub-User-Key'] = '6a8a2c47-7b76-43eb-af7e-ef479059b248';
-			config.headers['JsonStub-Project-Key'] = 'de496122-2c55-42ed-bb65-5d56a4f7b48b';
-			config.headers['Content-Type'] = 'application/json'
+		'request': function(config){			
+			config.headers['Content-Type'] = 'application/json';				
 			return config;
 		}
 	}
 }])
 .config(['$httpProvider', function($httpProvider){
 	$httpProvider.interceptors.push('jsonStubInterceptor');
+	$httpProvider.defaults.useXDomain = true;
+    delete $httpProvider.defaults.headers.common['X-Requested-With'];
 }]);
