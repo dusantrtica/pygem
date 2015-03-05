@@ -14,13 +14,15 @@ module.exports = function(grunt){
 		    'angular.js': 'bower_components/angular/angular.js',
 		    'angular-ui-router.js': 'bower_components/angular-ui-router/release/angular-ui-router.js',
 		    'angular-mocks.js': 'bower_components/angular-mocks/angular-mocks.js',
-		    'bootstrap.js': 'bower_components/bootstrap/dist/js/bootstrap.js'
+		    'bootstrap.js': 'bower_components/bootstrap/dist/js/bootstrap.js',
+		    'angular-busy.js': 'bower_components/angular-busy/dist/angular-busy.js'
 		}
 	    },
 	    css:{
 		options:{ destPrefix: 'app/css' },
 		files: {
-		    'bootstrap.css': 'bower_components/bootstrap/dist/css/bootstrap.css'
+		    'bootstrap.css': 'bower_components/bootstrap/dist/css/bootstrap.css',
+		    'angular-busy.css': 'bower_components/angular-busy/dist/angular-busy.css'
 		}
 	    }
 	},

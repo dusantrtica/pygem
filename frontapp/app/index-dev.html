@@ -8,6 +8,7 @@
 
 	    <!-- CSS -->
 	    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	    <link rel="stylesheet" type="text/css" href="css/angular-busy.css">
 
 
 	  	<!-- Angular and dependencies-->
@@ -16,6 +17,7 @@
 	  	<script src="js/libs/bootstrap.js"></script>
 	  	<script src="js/libs/angular-ui-router.js"></script>
 	  	<script src="js/libs/angular-mocks.js"></script>
+	  	<script src="js/libs/angular-busy.js"></script>
 
 	</head>
 	<body ng-app="PGApp" ng-controller="MainCtrl">
@@ -62,8 +64,12 @@
 		<!-- PGApp.employees -->
 		<script src="js/employees/employees.js"></script>
 		<script src="js/employees/controllers/listemployees.js"></script>
+		<script src="js/employees/controllers/employeebasic.js"></script>
 
 		<!-- PGApp.services -->
 		<script src="js/services/employee.js"></script>
+
+		<!--PGApp.sharedUI -->
+		<script src="js/sharedui/directives/editableformitem/editableformitem.js"></script>
 	</body>
 </html>

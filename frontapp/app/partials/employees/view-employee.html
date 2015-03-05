@@ -1,0 +1,32 @@
+<div class="col-sm-12">
+	<!-- We have form for each of the section-->
+	<!-- Employee Basic Info-->
+	<div ui-view="basic"></div>
+	<!-- Employee Positions -->
+	<form class="form-horizontal" role="form" cg-busy="employeePositionsPromise">
+		<div class="panel-body">
+			<p class="lead">
+				Details About Employee's Positions
+			</p>
+			<div ui-view="positions"></div>
+		</div>
+	</form>
+	<!-- Employee Courses-->
+	<form class="form-horizontal" role="form" cg-busy="employeeCoursesPromise">
+		<div class="panel-body">
+			<p class="lead">
+				Details About Employee's Courses
+			</p>
+			<div ui-view="courses"></div>
+		</div>
+	</form>
+	<!-- Employee Education-->
+	<form class="form-horizontal" role="form" cg-busy="employeeEducationPromise">
+		<div class="panel-body">
+			<p class="lead">
+				Details About Employee's Education
+			</p>
+			<div ui-view="education"></div>
+		</div>
+	</form>
+</div>

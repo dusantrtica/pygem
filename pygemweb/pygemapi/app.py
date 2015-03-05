@@ -1,11 +1,21 @@
 import ipdb
-from flask import Flask, send_from_directory
+
+import json
+
+from flask import (
+	Flask,
+	send_from_directory,
+	make_response
+)
+
+from flask_cors import CORS
 from flask.ext import restful
+
 from resources.employees import Employee
 import config
-import ipdb
 from database import DatabaseConnector
-from flask_cors import CORS
+from common.utils import convert_date
+
 
 
 app = Flask(__name__, static_url_path='/../../frontapp/app/')
@@ -17,7 +27,13 @@ app.databaseconnector = DatabaseConnector(app.config)
 
 api = restful.Api(app)
 
-api.add_resource(Employee, '/api/employees/', '/api/employees/<int:id>')
+@api.representation('application/json')
+def output_json(data, code, headers=None):
+	resp = make_response(json.dumps(data, default=convert_date), code)
+	resp.headers.extend(headers or {})
+	return resp
+
+api.add_resource(Employee, '/api/employees/', '/api/employees/<int:id>/')
 
 if __name__ == '__main__':
     app.run(debug=True)

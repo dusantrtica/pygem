@@ -1,4 +1,5 @@
 from __future__ import unicode_literals
+from datetime import datetime
 
 class Serializer(object):
 	def __init__(self, cursor, **kwargs):
@@ -55,14 +56,9 @@ class EmployeeSerializer(Serializer):
 		kwargs['fields'] = self.fields
 		super(EmployeeSerializer, self).__init__(cursor, **kwargs)
 
+	# We ommit fields because we want all of the data from employee table
 	fields = [
-		'employeeid',
-		'employeefirstname',
-		'employeesurname',
-		'employeelbo',
-		'employeejmbg'
 	]
-	
 
 if __name__ == '__main__':
 	import pyodbc

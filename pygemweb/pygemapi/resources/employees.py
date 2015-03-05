@@ -7,8 +7,8 @@ from entities.models.employee import *
 
 class Employee(restful.Resource):    
     def get(self, id=None):    	
-    	if id:
-    		result = get_employee_by_id(id)
+    	if id:    
+            result = get_employee_by_id(id)
     	else:
             # TODO: here goes pagination
     		result = {'results': get_employees()}

@@ -1,0 +1,13 @@
+<div class="form-group">
+	<label class="col-sm-3 control-label">
+		{{label}}
+	</label>
+	<div class="col-sm-9">
+		<p ng-show="!$parent.editorEnabled" class="form-control-static">
+			{{emodel}}
+		</p>
+		<p ng-show="$parent.editorEnabled" class="form-control-static">
+			<input class="form-control" ng-model="emodel" style="height: 34px;" />
+		</p>
+	</div>
+</div>

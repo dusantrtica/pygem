@@ -28,6 +28,10 @@ angular.module('PGApp.services')
 
 		getById: function(id){
 			return $http.get(baseUrl + '/api/employees/' + id + '/');
+		},
+
+		getEmployeeBasicInfo: function(employeeId){
+			return $http.get(baseUrl + '/api/employees/' + employeeId + '/');
 		}
 	};
 }]);

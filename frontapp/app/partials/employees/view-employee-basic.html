@@ -1,0 +1,38 @@
+<div cg-busy="employeeBasicPromise">
+	<form class="form-horizontal" role="form">
+		<div class="panel-body bg-success">
+			<p class="lead">
+				Employee Basic Info
+			</p>
+			<div class="row">
+				<div class="col-sm-4">
+					<editable-form-item
+						label="First Name"
+						emodel="employee.employeefirstname"
+					</editable-form-item>
+				</div>
+
+				<div class="col-sm-4">
+					<editable-form-item
+						label="Last Name"
+						emodel="employee.employeesurname">
+					</editable-form-item>
+				</div>
+
+				<div class="col-sm-4">
+					<editable-form-item
+						label="Mid. Name"
+						emodel="employee.employeesurname">
+					</editable-form-item>				
+				</div>
+
+			</div>							
+			<!-- A lot of stuff goes here -->
+			<div class="row">
+				<button type="button" class="btn btn-sm" ng-show="!editorEnabled" ng-click="editEmployeeBasic()">Edit</button>
+				<button type="button" class="btn btn-sm" ng-show="editorEnabled" ng-click="editEmployeeBasicSave()">Save</button>
+				<button type="button" class="btn btn-sm" ng-show="editorEnabled" ng-click="editEmployeeBasicCancel()">Cancel</button>
+			</div>
+		</div>
+	</form>
+</div>

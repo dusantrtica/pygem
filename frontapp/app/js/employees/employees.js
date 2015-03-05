@@ -7,6 +7,19 @@ angular.module('PGApp.employees')
 			controller: 'ListEmployees'
 
 		})
-		.state('employee', {});
+		.state('employee', {
+			url: '/employee{employeeId}/',
+			views:{
+				'': {templateUrl: 'partials/employees/view-employee.html'},
+				'basic@employee': {
+					templateUrl: 'partials/employees/view-employee-basic.html',
+					controller: 'EmployeeBasic'					
+				},
+				'positions@employee': {templateUrl: 'partials/employees/view-employee-positions.html'},
+				'courses@employee': {templateUrl: 'partials/employees/view-employee-courses.html'},
+				'education@employee': {templateUrl: 'partials/employees/view-employee-education.html'}
+			}
+
+		});
 		// TODO: add more states, one per each of the section.
 }]);
