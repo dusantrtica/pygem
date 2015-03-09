@@ -6,7 +6,7 @@ from entities.models.employee import *
 
 
 class Employee(restful.Resource):    
-    def get(self, id=None):    	
+    def get(self, id=None, page=None):    	
     	if id:    
             result = get_employee_by_id(id)
     	else:
@@ -16,11 +16,35 @@ class Employee(restful.Resource):
     	return result
 
     
-    def post(self, **params):
-    	id = params.get('id')
-    	if not id:
-    		return None
-
-    	req_dict = request.data
+    def post(self, **params):    	
+    	req_dict = request.json
+        # TODO: create new employee
 
         print(req_dict)
+
+    def put(self, **params):            
+        data = request.json
+
+        result, err = update_employee(data)
+
+        if result:
+            # Everything is okay
+            return data
+        else:
+            return None
+
+class EmployeePositions(restful.Resource):
+    def get(self, employee_id):        
+        result = get_employee_positions(employee_id)
+
+        return result        
+
+    def put(self, **params):
+        data = request.json
+        # update employee position    
+
+    def delete(self, **params):
+        pass
+
+    def post(self, **params):
+        pass    

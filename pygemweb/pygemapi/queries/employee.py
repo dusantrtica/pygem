@@ -8,3 +8,18 @@ SELECT e.*, ejt.EmployeeJobTypeActive,GROUP_CONCAT(jt.JobTypeTitle SEPARATOR ', 
 
 query_employee_by_id = 'SELECT * FROM employee WHERE employeeid=?'
 
+query_update_employee = """
+	UPDATE employee SET 
+		EmployeeFirstName=:employeefirstname,
+		EmployeeMidName=:employeemidname,
+		EmployeeSurname=:employeesurname
+	WHERE EmployeeID=:employeeid
+"""
+
+query_get_employee_positions = """
+	SELECT ejt.*, jt.JobTypeTitle, j.JobTitle from employee e
+		LEFT JOIN employeejobtype ejt on e.EmployeeID=ejt.EmployeeID
+		LEFT JOIN jobtype jt ON ejt.JobTypeID=jt.JobTypeID
+		LEFT JOIN job j ON j.JobID = jt.JobID
+		WHERE e.EmployeeID=:employeeid
+"""

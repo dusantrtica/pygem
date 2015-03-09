@@ -1,1 +1,41 @@
-Employee Positions Go Here
+<div cg-busy="employeePositionsPremise">
+	<form class="form-horizontal" role="form" cg-busy="employeePositionsPromise">
+		<div class="panel-body bg-warning">
+			<p class="lead">
+				Details About Employee's Positions
+			</p>
+			<div class="row">
+				<div class="col-sm-4">
+					<p>Active Positions</p>
+					<ul ng-repeat="activePosition in activePositions">
+						<employee-position
+							eposition=activePosition
+							status="active"
+						>
+						</employee-position>
+					</ul>
+				</div>
+				<div class="col-sm-4">
+					<p>Inactive Positions</p>
+					<ul ng-repeat="inactivePosition in inactivePositions">
+						<employee-position
+							eposition=inactivePosition
+							status="inactive"
+						>
+						</employee-position>
+					</ul>			
+				</div>
+				<div class="col-sm-4">
+					<p>Expired Positions</p>
+					<ul ng-repeat="expiredPosition in expiredPositions">
+						<employee-position
+							eposition=expiredPosition
+							status="expired"
+						>
+						</employee-position>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</form>	
+</div>

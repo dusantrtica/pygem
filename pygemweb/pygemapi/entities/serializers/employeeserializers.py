@@ -56,9 +56,19 @@ class EmployeeSerializer(Serializer):
 		kwargs['fields'] = self.fields
 		super(EmployeeSerializer, self).__init__(cursor, **kwargs)
 
-	# We ommit fields because we want all of the data from employee table
+	# We ommit fields because we want all of the data from query
 	fields = [
 	]
+
+class EmployeePositionsSerializer(Serializer):
+	def __init__(self, cursor, **kwargs):
+		kwargs['fields'] = self.fields
+		super(EmployeePositionsSerializer, self).__init__(cursor, **kwargs)
+
+	# We ommit fields because we want all of the data from the query
+	fields = [
+	]
+
 
 if __name__ == '__main__':
 	import pyodbc

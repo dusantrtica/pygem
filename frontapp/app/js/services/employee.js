@@ -32,6 +32,14 @@ angular.module('PGApp.services')
 
 		getEmployeeBasicInfo: function(employeeId){
 			return $http.get(baseUrl + '/api/employees/' + employeeId + '/');
+		},
+
+		updateEmployeeBasicInfo: function(employee){
+			return $http.put(baseUrl + '/api/employees/', employee);
+		},
+
+		getEmployeePositions: function(employeeId){
+			return $http.get(baseUrl + '/api/employeepositions/' + employeeId + '/')
 		}
 	};
 }]);

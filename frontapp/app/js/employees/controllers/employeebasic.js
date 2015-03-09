@@ -25,6 +25,13 @@ angular.module('PGApp.employees')
 
 	$scope.editEmployeeBasicSave = function(){
 		$scope.editorEnabled = false;
+		$scope.employeeBasicPromise = $q.defer();
+		Employee.updateEmployeeBasicInfo($scope.employee)
+		.then(function(response){
+			$scope.employeeBasicPromise.resolve();
+		}, function(reason){
+			$scope.employeeBasicPromise.resolve();
+		});
 	}
 
 	$scope.editEmployeeBasicCancel = function(){

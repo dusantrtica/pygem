@@ -27,6 +27,7 @@ angular.module('PGApp',[
 	// 3rd party libs
 	'ui.router',
 	'cgBusy',
+	'ui.bootstrap',
 
 	'PGApp.sharedUI',
 	'PGApp.services',

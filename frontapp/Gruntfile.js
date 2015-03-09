@@ -15,7 +15,9 @@ module.exports = function(grunt){
 		    'angular-ui-router.js': 'bower_components/angular-ui-router/release/angular-ui-router.js',
 		    'angular-mocks.js': 'bower_components/angular-mocks/angular-mocks.js',
 		    'bootstrap.js': 'bower_components/bootstrap/dist/js/bootstrap.js',
-		    'angular-busy.js': 'bower_components/angular-busy/dist/angular-busy.js'
+		    'angular-busy.js': 'bower_components/angular-busy/dist/angular-busy.js',
+		    'ui-bootstrap.js': 'bower_components/angular-bootstrap/ui-bootstrap.js',
+		    'ui-bootstrap-tpls.js': 'bower_components/angular-bootstrap/ui-bootstrap-tpls.js'
 		}
 	    },
 	    css:{

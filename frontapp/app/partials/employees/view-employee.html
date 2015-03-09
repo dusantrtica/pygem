@@ -3,14 +3,7 @@
 	<!-- Employee Basic Info-->
 	<div ui-view="basic"></div>
 	<!-- Employee Positions -->
-	<form class="form-horizontal" role="form" cg-busy="employeePositionsPromise">
-		<div class="panel-body">
-			<p class="lead">
-				Details About Employee's Positions
-			</p>
-			<div ui-view="positions"></div>
-		</div>
-	</form>
+	<div ui-view="positions"></div>
 	<!-- Employee Courses-->
 	<form class="form-horizontal" role="form" cg-busy="employeeCoursesPromise">
 		<div class="panel-body">

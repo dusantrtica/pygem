@@ -11,7 +11,7 @@ from flask import (
 from flask_cors import CORS
 from flask.ext import restful
 
-from resources.employees import Employee
+from resources.employees import *
 import config
 from database import DatabaseConnector
 from common.utils import convert_date
@@ -34,6 +34,7 @@ def output_json(data, code, headers=None):
 	return resp
 
 api.add_resource(Employee, '/api/employees/', '/api/employees/<int:id>/')
+api.add_resource(EmployeePositions, '/api/employeepositions/<int:employee_id>/')
 
 if __name__ == '__main__':
     app.run(debug=True)

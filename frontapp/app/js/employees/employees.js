@@ -15,7 +15,11 @@ angular.module('PGApp.employees')
 					templateUrl: 'partials/employees/view-employee-basic.html',
 					controller: 'EmployeeBasic'					
 				},
-				'positions@employee': {templateUrl: 'partials/employees/view-employee-positions.html'},
+				'positions@employee': {
+					templateUrl: 'partials/employees/view-employee-positions.html',
+					controller: 'EmployeePositions'
+				},
+
 				'courses@employee': {templateUrl: 'partials/employees/view-employee-courses.html'},
 				'education@employee': {templateUrl: 'partials/employees/view-employee-education.html'}
 			}
