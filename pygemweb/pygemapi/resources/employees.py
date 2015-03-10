@@ -41,7 +41,11 @@ class EmployeePositions(restful.Resource):
 
     def put(self, **params):
         data = request.json
-        # update employee position    
+        result = update_employee_position(data)        
+        if result:
+            return 200
+        else:
+            return 500
 
     def delete(self, **params):
         pass

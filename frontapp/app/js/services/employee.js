@@ -40,6 +40,10 @@ angular.module('PGApp.services')
 
 		getEmployeePositions: function(employeeId){
 			return $http.get(baseUrl + '/api/employeepositions/' + employeeId + '/')
+		},
+
+		updateEmployeePosition: function(position){
+			return $http.put(baseUrl +  '/api/employeepositions/', position);
 		}
 	};
 }]);

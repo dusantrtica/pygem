@@ -7,7 +7,9 @@ from entities.dataset.employee import (
 	_db_get_employees,
 	_db_get_employee_by_id,
 	_db_update_employee,
-	_db_get_employee_positions
+
+	_db_get_employee_positions,
+	_db_update_employee_position
 	)
 
 # Gets list of employees
@@ -34,3 +36,8 @@ def update_employee(employee_data):
 def get_employee_positions(employee_id):
 	# TODO: cache employee positoins
 	return _db_get_employee_positions(employee_id)
+
+def update_employee_position(employeeposition):
+	# Convert employeejobtypeactive from True/False to 1/0
+	employeeposition['employeejobtypeactive'] = int(employeeposition['employeejobtypeactive'])
+	return _db_update_employee_position(employeeposition)

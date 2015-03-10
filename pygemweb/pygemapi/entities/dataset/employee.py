@@ -40,3 +40,13 @@ def _db_get_employee_positions(employee_id):
 	cursor = dbconn.execute(sql, params)
 	return cursor
 
+def _db_update_employee_position(employeeposition):
+	query = sqlparams.SQLParams('named', 'qmark')
+	sql, params = query.format(query_update_employee_position, employeeposition)
+	dbconn = get_connection().cursor()
+	try:
+		dbconn.execute(sql, params)
+		return True
+	except Exception as e:
+		# TODO: log exception
+		return False

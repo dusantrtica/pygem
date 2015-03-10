@@ -34,7 +34,7 @@ def output_json(data, code, headers=None):
 	return resp
 
 api.add_resource(Employee, '/api/employees/', '/api/employees/<int:id>/')
-api.add_resource(EmployeePositions, '/api/employeepositions/<int:employee_id>/')
+api.add_resource(EmployeePositions, '/api/employeepositions/', '/api/employeepositions/<int:employee_id>/')
 
 if __name__ == '__main__':
     app.run(debug=True)

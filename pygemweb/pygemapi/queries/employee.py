@@ -23,3 +23,12 @@ query_get_employee_positions = """
 		LEFT JOIN job j ON j.JobID = jt.JobID
 		WHERE e.EmployeeID=:employeeid
 """
+
+query_update_employee_position = """
+	UPDATE employeejobtype SET
+		JobTypeID=:jobtypeid,
+		EmployeeJobTypeStartDate=:employeejobtypestartdate,
+		EmployeeJobTypeExpirationDate=:employeejobtypeexpirationdate,
+		EmployeeJobTypeActive=:employeejobtypeactive
+	WHERE employeejobtypeID=:employeejobtypeid
+"""

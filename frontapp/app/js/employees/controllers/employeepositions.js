@@ -3,10 +3,6 @@ angular.module('PGApp.employees')
 
 	$scope.employeeId = $stateParams.employeeId;
 
-	$scope.activePositions = [];
-	$scope.inactivePositions = [];
-	$scope.expiredPositions = [];
-
 	if(!$scope.employeeId){
 		// Fix 
 		$state.go('employees');
@@ -14,6 +10,11 @@ angular.module('PGApp.employees')
 
 	$scope.populateEmployeePositions = function(){
 		$scope.employeePositionsPremise = $q.defer();
+		
+		$scope.activePositions = [];
+		$scope.inactivePositions = [];
+		$scope.expiredPositions = [];
+	
 		Employee.getEmployeePositions($scope.employeeId)
 		.then(function(response){
 			$scope.employeePositionsPremise.resolve();
@@ -44,6 +45,10 @@ angular.module('PGApp.employees')
 			$scope.employeePositionsPremise.resolve();
 		});
 	}
+
+	$rootScope.$on('employeeposition-modified', function(){
+		$scope.populateEmployeePositions();
+	});
 
 	function hasPositionExpired(position){
 		// TODO: here we have to add comparing to the jobtype duration

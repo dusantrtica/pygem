@@ -2,19 +2,24 @@
 	Edit Employee Position
 </div>
 <div class="modal-body">
-	<div class="form">
+	<div class="form" cg-busy="saveEmployeePosition">
 		<div class="form-group">
 			<p>{{employeeposition.jobtypetitle}}</p>
 			<p>
-				Active: <input type="checkbox" value="{{employeeposition.employeejobtypeactive}}" />
+				Active: <input type="checkbox" ng-model="employeeposition.employeejobtypeactive" />
 			</p>
 			<div class="row">
 				<div class="col-sm-6">
-					From: {{employeeposition.employeejobtypestartdate | date: 'dd-MM-yyyy'}}
+					From: <input type="text" placeholder="dd-MM-yyyy" ng-model="employeeposition.employeejobtypestartdate" class="form-control" date-format>
 				</div>
 				<div class="col-sm-6">
-					To: {{employeeposition.employeepositionexpirationdate | date: 'dd-MM-yyyy'}}
+					To: <input type="text" placeholder="dd-MM-yyyy" ng-model="employeeposition.employeejobtypeexpirationdate" class="form-control" date-format>
 				</div>
+			</div>
+			<div class="row">
+				<button type="button" class="btn btn-sm btn-success" ng-click="updateEmployeePosition()">Save</button>
+				<button type="button" class="btn btn-sm btn-default" ng-click="cancel()">Cancel</button>
+				<button type="button" class="btn btn-sm btn-danger" ng-click="deleteEmployeePosition()">Delete</button>
 			</div>
 		</div>
 	</div>

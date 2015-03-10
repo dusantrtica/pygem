@@ -1,13 +1,15 @@
-<p ng-class="getClass(eposition)" ng-click="openEmployeePositionModal(eposition)">
-	<del ng-show="eposition.status=='expired'">{{eposition.jobtypetitle}}</del>
-	<strong ng-show="eposition.status != 'expired'">{{eposition.jobtypetitle}}</strong>
-	<br>
-	<div class="row">
-		<div class="col-sm-6">
-			From: {{eposition.employeejobtypestartdate}}
+<div ng-click="openEmployeePositionModal(eposition)">
+	<p ng-class="getClass(eposition)">
+		<del ng-show="eposition.status=='expired'">{{eposition.jobtypetitle}}</del>
+		<strong ng-show="eposition.status != 'expired'">{{eposition.jobtypetitle}}</strong>
+		<br>
+		<div class="row">
+			<div class="col-sm-6">
+				From: {{eposition.employeejobtypestartdate | date: 'dd-MM-yyyy'}}
+			</div>
+			<div class="col-sm-6">
+				To: {{eposition.employeejobtypeexpirationdate | date: 'dd-MM-yyyy'}}
+			</div>
 		</div>
-		<div class="col-sm-6">
-			To: {{eposition.employeejobtypeexpirationdate}}
-		</div>
-	</div>
-</p>
+	</p>
+</div>
